@@ -57,13 +57,23 @@ class LinkedList {
   /* 1. walk to end of the list because we can't go backwards and get the penultimate node
   2. as we walk, check current.next.next === null, this. tail = current, this.tail.next = null
 
-  1 -> 2 -> 3 -> null
-  1 -> 2 -> null
+  5 -> 10 -> null
+  5 -> null
+  null
 
    */
 
   pop() {
     let current = this.head;
+
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+      this.length --;
+      return current.val;
+    } else if (current === null) {
+      return undefined;
+    }
 
     while (current.next !== null) {
       if (current.next.next === null) {
@@ -75,6 +85,7 @@ class LinkedList {
       }
       current = current.next;
     }
+
   }
 
   /** shift(): return & remove first item. */

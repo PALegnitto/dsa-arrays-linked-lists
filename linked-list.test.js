@@ -58,6 +58,8 @@ describe("pop", function() {
     expect(lst.head).toBe(null);
     expect(lst.tail).toBe(null);
     expect(lst.length).toBe(0);
+
+    expect(lst.pop()).toBe(undefined);
   });
 });
 
