@@ -16,13 +16,32 @@ class LinkedList {
   tail = null;
   length = 0;
 
-  constructor(vals = []) {
-    for (let val of vals) this.push(val);
-  }
+  // constructor(vals = []) {
+  //   for (let val of vals) this.push(val);
+  // }
 
   /** push(val): add new value to end of list. */
 
   push(val) {
+    let current = this.head;
+    console.log('current', current);
+
+    while (current !== null) {
+      console.log("entered loop", val, current);
+      if (current.next === null) {
+          current.next = new Node(val);
+          this.tail = current.next;
+          this.length++;
+          current = current.next;
+      }
+    }
+
+    if (this.length === 0) {
+        this.head = new Node(val);
+        this.tail = this.head;
+        this.length++;
+        current = this.tail;
+      }
 
   }
 
@@ -71,7 +90,7 @@ class LinkedList {
   /** average(): return an average of all values in the list */
 
   average() {
-    
+
   }
 }
 
